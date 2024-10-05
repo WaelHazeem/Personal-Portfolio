@@ -35,11 +35,9 @@ jobs:
       - name: Build Angular App
         run: npm run build
 
-      - name: Deploy
-        if: success()
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist/personal-portfolio
-          enable_jekyll: true
+          publish_dir: dist/personal-portfolio 
          
