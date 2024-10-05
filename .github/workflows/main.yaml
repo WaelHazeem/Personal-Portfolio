@@ -38,6 +38,8 @@ jobs:
 
       - name: Build Angular App
         run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
 
       - name: Deploy to GitHub Pages
         id: deployment
