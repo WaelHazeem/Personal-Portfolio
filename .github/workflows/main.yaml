@@ -35,6 +35,11 @@ jobs:
       - name: Build Angular App
         run: npm run build
 
-
-      - name: Deploy to gh pages
-        run:  npx angular-cli-ghpages --dir=dist/personal-portfolio/browser
+      - name: Deploy
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist/personal-portfolio
+          enable_jekyll: true
+         
